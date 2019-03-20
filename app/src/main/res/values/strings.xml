@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">Walmart Demo</string>
+    <string name="search">Buscar productos</string>
+    <string name="product_name">Name of the product</string>
+    <string name="loading_product">Loading product ...</string>
+</resources>

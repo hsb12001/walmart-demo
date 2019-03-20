@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="isLoading" type="boolean" />
+        <variable name="productViewModel" type="mx.shosvb.walmart.demo.viewmodel.ProductViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/loading_product"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/loading_product"
+            android:textAlignment="center"
+            app:visibleGone="@{isLoading}"/>
+
+        <LinearLayout
+            android:layout_marginStart="@dimen/item_horizontal_margin"
+            android:layout_marginEnd="@dimen/item_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="5dp"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:orientation="vertical"
+            app:visibleGone="@{!isLoading}">
+            <ImageView
+                bind:imagePath="@{productViewModel.product.product.thumbnailImageUrl}"
+                android:layout_width="@dimen/thumbnail_w"
+                android:layout_height="@dimen/thumbnail_h"/>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/product_name"
+                android:textStyle="bold"
+                android:textSize="@dimen/product_header1"
+                android:text="@{productViewModel.product.product.description}"
+                android:textAlignment="center"
+                android:paddingBottom="5dp"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>
