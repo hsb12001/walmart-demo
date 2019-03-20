@@ -1,1 +1,2 @@
-# MVVM Walmart demo mvvm google architecture
+# MVVM Walmart demo
+mvvm new google architecture
